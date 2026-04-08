@@ -1,0 +1,76 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin", "user"] }
+      },
+      "required": ["uid", "email"]
+    },
+    "AutomationPlan": {
+      "title": "Automation Plan",
+      "description": "A chatbot or workflow automation plan",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "type": { "type": "string", "enum": ["ManyChat", "n8n"] },
+        "status": { "type": "string", "enum": ["Active", "Paused"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "title", "type", "status"]
+    },
+    "Integration": {
+      "title": "Integration",
+      "description": "External service integration credentials",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "service": { "type": "string", "enum": ["manychat", "n8n", "whatsapp"] },
+        "apiKey": { "type": "string", "description": "Encrypted API Key" },
+        "webhookUrl": { "type": "string", "format": "uri" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "service"]
+    },
+    "Bot": {
+      "title": "Bot",
+      "description": "A registered chatbot instance",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "integrationId": { "type": "string" },
+        "status": { "type": "string", "enum": ["Active", "Paused"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "name", "integrationId", "status"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profile documents"
+    },
+    "/plans/{planId}": {
+      "schema": "AutomationPlan",
+      "description": "Automation plans for users"
+    },
+    "/integrations/{integrationId}": {
+      "schema": "Integration",
+      "description": "User service integrations"
+    },
+    "/bots/{botId}": {
+      "schema": "Bot",
+      "description": "User registered bots"
+    }
+  }
+}
