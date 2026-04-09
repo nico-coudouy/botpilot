@@ -1,20 +1,43 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# BOT PILOT — Landing Page
 
-# Run and deploy your AI Studio app
+Sitio web de presentación de BOT PILOT, plataforma de automatización con chatbots inteligentes para Instagram, Facebook y WhatsApp.
 
-This contains everything you need to run your app locally.
+## Stack
 
-View your app in AI Studio: https://ai.studio/apps/06af0eaf-c74b-40e8-aad1-95df7b1febae
+- **React + TypeScript** — Vite
+- **Tailwind CSS**
+- **Framer Motion** — animaciones
+- **Firebase** — autenticación y base de datos
+- **Groq AI** — chat de demo en tiempo real
 
-## Run Locally
+## Secciones
 
-**Prerequisites:**  Node.js
+- Hero con llamada a la acción
+- Demo de chat en vivo con asistente IA
+- Características y beneficios
+- Testimonios
+- Planes y precios (Starter, Pro, Enterprise)
+- CTA final con link a Instagram y WhatsApp
 
+## Correr localmente
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+**Requisitos:** Node.js 18+
+
+1. Clonar el repositorio
+2. Instalar dependencias:
+```bash
+   npm install
+```
+3. Crear un archivo `.env.local` basado en `.env.example`:
+VITE_FIREBASE_API_KEY=...
+VITE_FIREBASE_AUTH_DOMAIN=...
+VITE_FIREBASE_PROJECT_ID=...
+GROQ_API_KEY=...
+4. Correr el servidor de desarrollo:
+```bash
+   npm run dev
+```
+
+## Deploy
+
+Configurado para desplegarse en Vercel. Cada push a `main` genera un deploy automático.
