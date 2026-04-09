@@ -1,4 +1,4 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node';
+export default async function handler(req: any, res: any) {
 
 const SYSTEM_PROMPT = `Eres el asistente virtual de BOT PILOT, una plataforma de automatización con chatbots inteligentes.
 Ayudás a los usuarios con consultas sobre:
