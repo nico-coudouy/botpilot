@@ -21,12 +21,12 @@ const BENEFITS = [
   {
     icon: <Bot className="w-8 h-8 text-accent" />,
     title: "IA de Última Generación",
-    description: "Utilizamos modelos GPT-4 y Claude 3 para respuestas humanas y precisas."
+    description: "Utilizamos modelos Gemini, GPT y Claude para respuestas humanas y precisas."
   },
   {
     icon: <Zap className="w-8 h-8 text-electric" />,
     title: "Automatización Total",
-    description: "Conecta ManyChat, n8n y WhatsApp en minutos sin escribir código."
+    description: "Conecta Instagram, Facebook y WhatsApp en minutos."
   },
   {
     icon: <BarChart3 className="w-8 h-8 text-purple-400" />,
