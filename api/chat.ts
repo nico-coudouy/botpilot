@@ -1,5 +1,3 @@
-export default async function handler(req: any, res: any) {
-
 const SYSTEM_PROMPT = `Eres el asistente virtual de BOT PILOT, una plataforma de automatización con chatbots inteligentes.
 Ayudás a los usuarios con consultas sobre:
 - Integración con ManyChat, n8n y WhatsApp
@@ -44,12 +42,14 @@ Tono
 - Podés usar emojis ocasionalmente (🤖, ✅, 🚀)
 - Evitá respuestas demasiado largas, máximo 3-4 oraciones por respuesta`;
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+module.exports = async function handler(req: any, res: any) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
   const { messages } = req.body;
+
+  console.log('GROQ_API_KEY exists:', !!process.env.GROQ_API_KEY);
 
   if (!messages || !Array.isArray(messages)) {
     return res.status(400).json({ error: 'Messages array required' });
@@ -73,18 +73,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       }),
     });
 
+    const data = await response.json();
+    console.log('Groq status:', response.status);
+
     if (!response.ok) {
-      const error = await response.text();
-      console.error('Groq API error:', error);
-      return res.status(500).json({ error: 'Failed to get response from AI' });
+      return res.status(500).json({ error: 'Groq API error', detail: data });
     }
 
-    const data = await response.json();
-    const message = data.choices[0].message.content;
+    return res.status(200).json({ message: data.choices[0].message.content });
 
-    return res.status(200).json({ message });
-  } catch (error) {
-    console.error('Handler error:', error);
-    return res.status(500).json({ error: 'Internal server error' });
+  } catch (error: any) {
+    console.error('Handler error:', error.message);
+    return res.status(500).json({ error: error.message });
   }
-}
+};
