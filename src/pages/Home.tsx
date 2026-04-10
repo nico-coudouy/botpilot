@@ -43,9 +43,9 @@ const TESTIMONIALS = [
     avatar: "https://picsum.photos/seed/carlos/100/100"
   },
   {
-    name: "Elena Martínez",
-    role: "Marketing Manager",
-    content: "La integración con n8n es simplemente perfecta. Automatizamos todo nuestro funnel de ventas.",
+    name: "Florencia Ferraro",
+    role: "Agente inmobiliario",
+    content: "La integración con n8n es simplemente perfecta. Automatizamos todo nuestro canal de ventas.",
     avatar: "https://picsum.photos/seed/elena/100/100"
   }
 ];
