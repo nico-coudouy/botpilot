@@ -321,7 +321,7 @@ export default function Home() {
                 Lo que dicen nuestros <span className="text-electric">Pilotos</span>
               </h2>
               <p className="text-white/40 text-lg mb-12">
-                Únete a más de 500 empresas que ya están automatizando su crecimiento con nosotros.
+                Únete a más de 50 empresas que ya están automatizando su crecimiento con nosotros.
               </p>
               <div className="flex gap-4">
                 <div className="flex -space-x-4">
